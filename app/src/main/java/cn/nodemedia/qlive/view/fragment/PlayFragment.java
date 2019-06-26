@@ -42,7 +42,7 @@ public class PlayFragment extends PreferenceFragment implements Preference.OnPre
         initPreference("maxbuffertime", "1000", true);
         initPreference("video_scale_mode", "1", true);
         initPreference("decode_auto_hardware_acceleration", "true", true);
-
+        initPreference("rtsp_transport", "tcp", true);
 
         findPreference("play_start").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override

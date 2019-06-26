@@ -204,6 +204,7 @@
     <string name="buffertime">BufferTime</string>
     <string name="maxbuffertime">MaxBufferTime</string>
     <string name="video_scale_mode">Video Scale Mode</string>
+    <string name="rtsp_transport">RTSP Transport</string>
     <string-array name="video_scale_mode_list_titles">
         <item>ScaleToFill</item>
         <item>ScaleAspectFit</item>
@@ -213,6 +214,16 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+    <string-array name="rtsp_transport_titles">
+        <item>UDP</item>
+        <item>TCP</item>
+        <item>HTTP</item>
+    </string-array>
+    <string-array name="rtsp_transport_values">
+        <item>udp</item>
+        <item>tcp</item>
+        <item>http</item>
     </string-array>
 
 </resources>

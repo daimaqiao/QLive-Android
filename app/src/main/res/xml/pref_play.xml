@@ -56,6 +56,15 @@
             android:summary="@null"
             android:title="@string/auto_hardware_acceleration" />
 
+        <ListPreference
+            android:defaultValue="tcp"
+            android:entries="@array/rtsp_transport_titles"
+            android:entryValues="@array/rtsp_transport_values"
+            android:key="rtsp_transport"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:summary="@null"
+            android:title="@string/rtsp_transport" />
     </PreferenceCategory>
 
 

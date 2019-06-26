@@ -39,6 +39,7 @@ public interface PlayContract {
             int maxBufferTime = getPreferenceValue("maxbuffertime", "1000");
             int videoScaleMode = getPreferenceValue("video_scale_mode", "1");
             boolean autoHA = getPreferenceValue("decode_auto_hardware_acceleration",true);
+            String rtspTransport =  sp.getString("rtsp_transport","udp");
 
             NodePlayerView playSurface = mView.getNodePlayerView();
             //设置播放视图的渲染器模式,可以使用SurfaceView或TextureView. 默认SurfaceView
@@ -110,7 +111,7 @@ public interface PlayContract {
              * NodePlayer.RTSP_TRANSPORT_UDP_MULTICAST
              * NodePlayer.RTSP_TRANSPORT_HTTP
              */
-            // np.setRtspTransport(NodePlayer.RTSP_TRANSPORT_TCP);
+            nodePlayer.setRtspTransport(rtspTransport);
 
             /**
              * 在本地开起一个RTMP服务,并进行监听播放,局域网内其他手机或串流器能推流到手机上直接进行播放,无需中心服务器支持
