@@ -3,6 +3,7 @@ package cn.nodemedia.qlive.view;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -55,16 +56,19 @@ public class PlayActivity extends BaseActivity<PlayContract.Presenter> implement
     @Override
     public void onResume() {
         super.onResume();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     @Override
     public void onPause() {
         super.onPause();
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
     }
 
     @Override

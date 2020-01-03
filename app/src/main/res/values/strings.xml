@@ -68,6 +68,7 @@
         <item>16x9_480</item>
         <item>16x9_540</item>
         <item>16x9_720</item>
+        <item>16x9_1080</item>
     </string-array>
     <string-array name="video_resolution_list_values">
         <item>0</item>
@@ -75,6 +76,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
 
@@ -113,6 +115,8 @@
         <item>600 kbps</item>
         <item>800 kbps</item>
         <item>1000 kbps</item>
+        <item>2000 kbps</item>
+        <item>3000 kbps</item>
     </string-array>
     <string-array name="video_bitrate_list_values">
         <item>300000</item>
@@ -120,6 +124,8 @@
         <item>600000</item>
         <item>800000</item>
         <item>1000000</item>
+        <item>2000000</item>
+        <item>3000000</item>
     </string-array>
     <string name="video_fps">Video FPS</string>
     <string-array name="video_fps_list_titles">
