@@ -22,8 +22,6 @@ import cn.nodemedia.qlive.BottomNavigationViewHelper;
 import cn.nodemedia.qlive.R;
 import cn.nodemedia.qlive.contract.MainContract;
 import cn.nodemedia.qlive.view.fragment.AboutFragment;
-import cn.nodemedia.qlive.view.fragment.ConvFragment;
-import cn.nodemedia.qlive.view.fragment.PlayFragment;
 import cn.nodemedia.qlive.view.fragment.PushFragment;
 import xyz.tanwb.airship.utils.ToastUtils;
 import xyz.tanwb.airship.view.widget.NoScrollViewPager;
@@ -44,9 +42,9 @@ public class MainActivity extends ActionbarActivity<MainContract.Presenter> impl
                 case R.id.navigation_push:
                     changeFooterState(0);
                     return true;
-                case R.id.navigation_play:
-                    changeFooterState(1);
-                    return true;
+//                case R.id.navigation_play:
+//                    changeFooterState(1);
+//                    return true;
 //                case R.id.navigation_conv:
 //                    changeFooterState(2);
 //                    return true;
@@ -118,7 +116,7 @@ public class MainActivity extends ActionbarActivity<MainContract.Presenter> impl
     public void initData() {
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new PushFragment());
-        fragmentList.add(new PlayFragment());
+//        fragmentList.add(new PlayFragment());
 //        fragmentList.add(new ConvFragment());
         fragmentList.add(new AboutFragment());
         BasePagerFragmentAdapter fragmentAdapter = new BasePagerFragmentAdapter(getFragmentManager(), fragmentList);

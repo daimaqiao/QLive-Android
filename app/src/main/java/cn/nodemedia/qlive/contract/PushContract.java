@@ -5,9 +5,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
 
-import cn.nodemedia.NodeCameraView;
-import cn.nodemedia.NodePublisher;
-import cn.nodemedia.NodePublisherDelegate;
+import com.wfpush.WFCameraView;
+import com.wfpush.WFPush;
+import com.wfpush.WFPushDelegate;
 import cn.nodemedia.qlive.R;
 import xyz.tanwb.airship.utils.Log;
 import xyz.tanwb.airship.utils.ToastUtils;
@@ -18,7 +18,7 @@ public interface PushContract {
 
     interface View extends BaseView {
 
-        NodeCameraView getNodeCameraView();
+        WFCameraView getWFCameraView();
 
         void buttonAvailable(boolean isStarting);
 
@@ -27,10 +27,10 @@ public interface PushContract {
         void flashChange(boolean onOrOff);
     }
 
-    class Presenter extends BasePresenter<View> implements NodePublisherDelegate {
+    class Presenter extends BasePresenter<View> implements WFPushDelegate {
 
         private SharedPreferences sp;
-        private NodePublisher nodePublisher;
+        private WFPush WFPush;
 
         private boolean isStarting;
 
@@ -58,18 +58,18 @@ public interface PushContract {
             boolean autoHardwareAcceleration = getPreferenceValue("auto_hardware_acceleration", true);
             int smoothSkinLevel = getPreferenceValue("smooth_skin_level", "0");
 
-            nodePublisher = new NodePublisher(mContext,"c0KzkWKg5LoyRg+hR+2wtrnf/k61cQuoAibf2T8ghqFObNhHVuBiWqn28RhSSyAmLhcxuLVOXVLUf0Blk/axig==");
-            nodePublisher.setNodePublisherDelegate(this);
-            nodePublisher.setOutputUrl(streamURL);
-            nodePublisher.setCameraPreview(mView.getNodeCameraView(), cameraPostion, camreaFrontMirror);
-            nodePublisher.setVideoParam(videoResolution, videoFps, videoBitrate, videoProfile, videoFrontMirror);
-            nodePublisher.setKeyFrameInterval(videoKeyframeInterval);
-            nodePublisher.setAudioParam(audioBitrate, audioProfile, audioSamplerate);
-            nodePublisher.setDenoiseEnable(audioDenoise);
-            nodePublisher.setHwEnable(autoHardwareAcceleration);
-            nodePublisher.setBeautyLevel(smoothSkinLevel);
-            nodePublisher.setAutoReconnectWaitTimeout(-1);
-            nodePublisher.startPreview();
+            WFPush = new WFPush(mContext,"c0KzkWKg5LoyRg+hR+2wtrnf/k61cQuoAibf2T8ghqFObNhHVuBiWqn28RhSSyAmLhcxuLVOXVLUf0Blk/axig==");
+            WFPush.setWFPushDelegate(this);
+            WFPush.setOutputUrl(streamURL);
+            WFPush.setCameraPreview(mView.getWFCameraView(), cameraPostion, camreaFrontMirror);
+            WFPush.setVideoParam(videoResolution, videoFps, videoBitrate, videoProfile, videoFrontMirror);
+            WFPush.setKeyFrameInterval(videoKeyframeInterval);
+            WFPush.setAudioParam(audioBitrate, audioProfile, audioSamplerate);
+            WFPush.setDenoiseEnable(audioDenoise);
+            WFPush.setHwEnable(autoHardwareAcceleration);
+            WFPush.setBeautyLevel(smoothSkinLevel);
+            WFPush.setAutoReconnectWaitTimeout(-1);
+            WFPush.startPreview();
         }
 
         private int getPreferenceValue(String key, String defValue) {
@@ -83,14 +83,14 @@ public interface PushContract {
 
         public void pushChange() {
             if (isStarting) {
-                nodePublisher.stop();
+                WFPush.stop();
             } else {
-                nodePublisher.start();
+                WFPush.start();
             }
         }
 
         public int switchCamera() {
-            int ret = nodePublisher.switchCamera();
+            int ret = WFPush.switchCamera();
             if(ret > 0) {
                 mView.flashChange(false);
             }
@@ -99,7 +99,7 @@ public interface PushContract {
 
         public int switchFlash() {
             boolean flashEnable = !this.isFlashEnable;
-            int ret = nodePublisher.setFlashEnable(flashEnable);
+            int ret = WFPush.setFlashEnable(flashEnable);
             this.isFlashEnable = ret == 1;
             mView.flashChange(this.isFlashEnable);
             return ret;
@@ -107,14 +107,14 @@ public interface PushContract {
 
         @Override
         public void onDestroy() {
-            nodePublisher.stopPreview();
-            nodePublisher.stop();
-            nodePublisher.release();
+            WFPush.stopPreview();
+            WFPush.stop();
+            WFPush.release();
             super.onDestroy();
         }
 
         @Override
-        public void onEventCallback(NodePublisher nodePublisher, int event, String msg) {
+        public void onEventCallback(WFPush WFPush, int event, String msg) {
             Log.d("EventCallback:" + event + " msg:" + msg);
             handler.sendEmptyMessage(event);
         }

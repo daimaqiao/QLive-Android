@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context="cn.nodemedia.qlive.view.PushActivity">
 
-    <cn.nodemedia.NodeCameraView
+    <com.wfpush.WFCameraView
         android:id="@+id/push_surface"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
 
 
-    </cn.nodemedia.NodeCameraView>
+    </com.wfpush.WFCameraView>
 
     <ImageView
         android:id="@+id/push_back"

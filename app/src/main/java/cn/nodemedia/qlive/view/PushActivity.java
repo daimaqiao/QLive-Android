@@ -5,24 +5,21 @@ import android.animation.ObjectAnimator;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import cn.nodemedia.NodeCameraView;
+import com.wfpush.WFCameraView;
 import cn.nodemedia.qlive.R;
 import cn.nodemedia.qlive.contract.PushContract;
-import xyz.tanwb.airship.utils.StatusBarUtils;
 import xyz.tanwb.airship.view.BaseActivity;
 
 public class PushActivity extends BaseActivity<PushContract.Presenter> implements PushContract.View, View.OnClickListener {
 
-    private NodeCameraView pushSurface;
+    private WFCameraView pushSurface;
     private ImageView pushBack,pushSwitch,pushFlash;
     private TextView pushButton;
 
@@ -143,7 +140,7 @@ public class PushActivity extends BaseActivity<PushContract.Presenter> implement
     }
 
     @Override
-    public NodeCameraView getNodeCameraView() {
+    public WFCameraView getWFCameraView() {
         return pushSurface;
     }
 
