@@ -57,8 +57,9 @@ public interface PushContract {
             boolean audioDenoise = getPreferenceValue("audio_denoise", true);
             boolean autoHardwareAcceleration = getPreferenceValue("auto_hardware_acceleration", true);
             int smoothSkinLevel = getPreferenceValue("smooth_skin_level", "0");
+            String pushCryptoKey = sp.getString("push_cryptokey", "");
 
-            nodePublisher = new NodePublisher(mContext,"c0KzkWKg5LoyRg+hR+2wtrnf/k61cQuoAibf2T8ghqFObNhHVuBiWqn28RhSSyAmLhcxuLVOXVLUf0Blk/axig==");
+            nodePublisher = new NodePublisher(mContext,"ZjJhNTIzODAtNGU0ZDUzMjEtY24ubm9kZW1lZGlh-MwSKCNpz2r12M4DnvEm1fmzPiqqY5rusO8+LmQ+U28B0SPwsnDjyrk18FdJGrFJcCOdArMMYDj6JbB7R8N8JiSZlqhdEWKU8gAifKkTcGgMTiua5Rg/vNOn4wVdW8zQtcHB6jmw4KG1RDAldmlQlJ1xUJrK3EY+qYqx569wd+X6BlZPUB/y2uxg47DcpC9PDvVMdlxRybwGrsIaFyWd42lIXOYUSbgdPjyUoEjEt8icGehbOnQi+M8fHc5ggKytDXUon4boHYRbwwlapTjiaQ07BUIvy1lQtv8OumoibU/IajXXBl4Zib0t82pQHRvr+mh6nflfzJZDSAnFWYr1t6Q==");
             nodePublisher.setNodePublisherDelegate(this);
             nodePublisher.setOutputUrl(streamURL);
             nodePublisher.setCameraPreview(mView.getNodeCameraView(), cameraPostion, camreaFrontMirror);
@@ -68,7 +69,7 @@ public interface PushContract {
             nodePublisher.setDenoiseEnable(audioDenoise);
             nodePublisher.setHwEnable(autoHardwareAcceleration);
             nodePublisher.setBeautyLevel(smoothSkinLevel);
-            nodePublisher.setAutoReconnectWaitTimeout(-1);
+            nodePublisher.setCryptoKey(pushCryptoKey);
             nodePublisher.startPreview();
         }
 

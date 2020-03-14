@@ -40,6 +40,7 @@ public interface PlayContract {
             int videoScaleMode = getPreferenceValue("video_scale_mode", "1");
             boolean autoHA = getPreferenceValue("decode_auto_hardware_acceleration",true);
             String rtspTransport =  sp.getString("rtsp_transport","udp");
+            String playCryptoKey = sp.getString("play_cryptokey","");
 
             NodePlayerView playSurface = mView.getNodePlayerView();
             //设置播放视图的渲染器模式,可以使用SurfaceView或TextureView. 默认SurfaceView
@@ -60,7 +61,7 @@ public interface PlayContract {
             }
             playSurface.setUIViewContentMode(mode);
 
-            nodePlayer = new NodePlayer(mContext,"c0KzkWKg5LoyRg+hR+2wtrnf/k61cQuoAibf2T8ghqFObNhHVuBiWqn28RhSSyAmLhcxuLVOXVLUf0Blk/axig==");
+            nodePlayer = new NodePlayer(mContext,"ZjJhNTIzODAtNGU0ZDUzMjEtY24ubm9kZW1lZGlh-MwSKCNpz2r12M4DnvEm1fmzPiqqY5rusO8+LmQ+U28B0SPwsnDjyrk18FdJGrFJcCOdArMMYDj6JbB7R8N8JiSZlqhdEWKU8gAifKkTcGgMTiua5Rg/vNOn4wVdW8zQtcHB6jmw4KG1RDAldmlQlJ1xUJrK3EY+qYqx569wd+X6BlZPUB/y2uxg47DcpC9PDvVMdlxRybwGrsIaFyWd42lIXOYUSbgdPjyUoEjEt8icGehbOnQi+M8fHc5ggKytDXUon4boHYRbwwlapTjiaQ07BUIvy1lQtv8OumoibU/IajXXBl4Zib0t82pQHRvr+mh6nflfzJZDSAnFWYr1t6Q==");
             nodePlayer.setNodePlayerDelegate(this);
             nodePlayer.setPlayerView(playSurface);
 
@@ -112,6 +113,11 @@ public interface PlayContract {
              * NodePlayer.RTSP_TRANSPORT_HTTP
              */
             nodePlayer.setRtspTransport(rtspTransport);
+
+            /**
+             * 设置视频解密秘钥，16字节，空字符串则不进行解密
+             */
+            nodePlayer.setCryptoKey(playCryptoKey);
 
             /**
              * 在本地开起一个RTMP服务,并进行监听播放,局域网内其他手机或串流器能推流到手机上直接进行播放,无需中心服务器支持

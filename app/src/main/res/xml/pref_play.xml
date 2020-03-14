@@ -65,6 +65,13 @@
             android:positiveButtonText="@null"
             android:summary="@null"
             android:title="@string/rtsp_transport" />
+        <EditTextPreference
+            android:inputType="text"
+            android:key="play_cryptokey"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/play_cryptokey" />
     </PreferenceCategory>
 
 

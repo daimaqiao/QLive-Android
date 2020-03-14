@@ -148,6 +148,13 @@
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
             android:title="@string/smooth_skin_level" />
+        <EditTextPreference
+            android:inputType="text"
+            android:key="push_cryptokey"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/push_cryptokey" />
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -57,6 +57,8 @@ public class PushFragment extends PreferenceFragment implements Preference.OnPre
 //        initPreference("auto_hardware_acceleration", "true", true);
         initPreference("smooth_skin_level", "0", true);
 
+        initPreference("push_cryptokey", "", true);
+
         findPreference("push_start").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {

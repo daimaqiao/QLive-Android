@@ -231,5 +231,6 @@
         <item>tcp</item>
         <item>http</item>
     </string-array>
-
+    <string name="play_cryptokey">CryptoKey</string>
+    <string name="push_cryptokey">CryptoKey</string>
 </resources>
