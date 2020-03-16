@@ -61,7 +61,7 @@ public interface PlayContract {
             }
             playSurface.setUIViewContentMode(mode);
 
-            nodePlayer = new NodePlayer(mContext,"ZjJhNTIzODAtNGU0ZDUzMjEtY24ubm9kZW1lZGlh-MwSKCNpz2r12M4DnvEm1fmzPiqqY5rusO8+LmQ+U28B0SPwsnDjyrk18FdJGrFJcCOdArMMYDj6JbB7R8N8JiSZlqhdEWKU8gAifKkTcGgMTiua5Rg/vNOn4wVdW8zQtcHB6jmw4KG1RDAldmlQlJ1xUJrK3EY+qYqx569wd+X6BlZPUB/y2uxg47DcpC9PDvVMdlxRybwGrsIaFyWd42lIXOYUSbgdPjyUoEjEt8icGehbOnQi+M8fHc5ggKytDXUon4boHYRbwwlapTjiaQ07BUIvy1lQtv8OumoibU/IajXXBl4Zib0t82pQHRvr+mh6nflfzJZDSAnFWYr1t6Q==");
+            nodePlayer = new NodePlayer(mContext,"M2FmZTEzMGUwMC00ZTRkNTMyMS1jbi5ub2RlbWVkaWEucWxpdmU=-OTv6MJuhXZKNyWWMkdKJWsVKmLHwWPcPfnRbbWGIIf+8t39TqL/mW2f5O5WdT/W8JJE7ePvkvKaS371xVckAZ/U00dSwPp8ShB8Yic2W1GhwCyq04DYETsrGnkOWrhARH7nzNhd3Eq6sVC1Fr74GCEUHbDSCZnCfhcEnzGU9InRiQJ2PImtHORahN3blAGlHb6LZmdnobw5odvKEeUhbkhxYf8S1Fv4VRnSpDCSS3LZ2U3Mp6MfGDA1ZXPadmgdwaJitIrnWA2zP/yqmlUHjMtTv8PzGcc73Tm5k5q+OMbKCJsPq8KSEpFthncvaGZJ2kS2GHx6V5TqYZglBrTx61g==");
             nodePlayer.setNodePlayerDelegate(this);
             nodePlayer.setPlayerView(playSurface);
 
